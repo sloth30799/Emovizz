@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "tsc",
-    "start": "node build/server.js",
-    "dev": "nodemon server.ts",
-    "postinstall": "concurrently \"cd .. && cd client && npm install && npm run build\" \"npm run build\"",
+    "start": "node server",
+    "dev": "nodemon server",
+    "postinstall": "cd .. && cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -16,12 +15,8 @@
     "nodemon": "^2.0.21"
   },
   "dependencies": {
-    "@types/express": "^4.17.17",
-    "@types/node": "^18.14.6",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "openai": "^3.2.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
+    "openai": "^3.2.1"
   }
 }
