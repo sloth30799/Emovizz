@@ -1,6 +1,8 @@
 # Emovizz
 Emovizz is a super fun game that lets you guess the names of popular movies using emojis! With its colorful graphics and easy-to-use interface, you'll be hooked in no time. Give it a try and see how many movies you can guess!
 
+![imgur](https://i.imgur.com/wkgMJYv.jpg)
+
 ## Tech Used
 
 ![TypeScript](https://img.shields.io/badge/-TypeScript-%233178C6?style=for-the-badge&logo=typescript&logoColor=white)
@@ -23,5 +25,6 @@ Emovizz is a super fun game that lets you guess the names of popular movies usin
 
 ## How to Use
 
-- npm install in both server
+- npm install in server
+- npm run dev in both
 - add Env variables (PORT, OPENAI_API_KEY)
