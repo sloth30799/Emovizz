@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Form, Link, useActionData, useParams } from "react-router-dom"
 import { useMovieContext } from "../context/MovieContext"
 import axios from "axios"
@@ -25,13 +25,14 @@ export async function action({ request }: { request: any }) {
 export default function Quiz() {
   const { movies } = useMovieContext()
   const { increaseCount } = useCountContext()
-  const { id } = useParams<RouteParams>()
+
   const [emoji, setEmoji] = useState("")
+  const { id } = useParams<RouteParams>()
+
   const userAnswer = useActionData()
   const answer = movies[Number(id)]
 
-  if (movies.length < 1)
-    return <h1 className="text-center text-white">Loading...</h1>
+  const nextLink = Number(id) < 9 ? Number(id) + 1 : "result"
 
   useEffect(() => {
     async function getEmoji() {
@@ -44,18 +45,16 @@ export default function Quiz() {
       setEmoji(data)
     }
     getEmoji()
+    return setEmoji("")
   }, [id, movies])
 
   useEffect(() => {
     if (answer === userAnswer) {
       increaseCount()
-      console.log("reight")
     }
   }, [userAnswer])
 
   const checkAnswer = answer === userAnswer ? "text-green" : "text-red"
-
-  const nextLink = Number(id) < 9 ? Number(id) + 1 : "result"
 
   return (
     <div className={styles.box}>

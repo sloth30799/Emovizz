@@ -7,6 +7,7 @@ type CountContextProviderProps = {
 type CountContextProps = {
   count: number
   increaseCount: () => void
+  resetCount: () => void
 }
 
 const CountContext = createContext({} as CountContextProps)
@@ -24,8 +25,12 @@ export const CountContextProvider = ({
     setCount((prev) => prev + 1)
   }
 
+  function resetCount() {
+    setCount(0)
+  }
+
   return (
-    <CountContext.Provider value={{ count, increaseCount }}>
+    <CountContext.Provider value={{ count, increaseCount, resetCount }}>
       {children}
     </CountContext.Provider>
   )

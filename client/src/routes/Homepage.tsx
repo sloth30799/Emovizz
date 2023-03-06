@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import { useNavigate } from "react-router-dom"
+import { useCountContext } from "../context/CountContext"
 import { useMovieContext } from "../context/MovieContext"
 
 const styles = {
@@ -12,10 +13,12 @@ const styles = {
 export default function Homepage() {
   const quizTypeRef = useRef<HTMLSelectElement>(null)
   const { chooseQuiz } = useMovieContext()
+  const { resetCount } = useCountContext()
   const navigate = useNavigate()
 
   async function handleSubmit(event: React.SyntheticEvent) {
     event.preventDefault()
+    resetCount()
     const type = quizTypeRef.current?.value
     if (type !== undefined) {
       chooseQuiz(type)
