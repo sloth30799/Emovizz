@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { Form, Link, useActionData, useParams } from "react-router-dom"
 import { useMovieContext } from "../context/MovieContext"
 import axios from "axios"
@@ -30,8 +30,8 @@ export default function Quiz() {
   const userAnswer = useActionData()
   const answer = movies[Number(id)]
 
-  // if (movies.length < 1)
-  //   return <h1 className="text-center text-white">Loading...</h1>
+  if (movies.length < 1)
+    return <h1 className="text-center text-white">Loading...</h1>
 
   useEffect(() => {
     async function getEmoji() {

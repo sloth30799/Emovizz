@@ -10,7 +10,7 @@ const styles = {
 function Result() {
   const { count } = useCountContext()
   const endingText =
-    count <= 5 ? "You have a lot more movies to guess!" : "Great job!"
+    count <= 5 ? "You have a lot more movies to guess!😔" : "Great job! 🎉 👏"
 
   return (
     <div className={styles.box}>
